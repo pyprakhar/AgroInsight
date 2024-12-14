@@ -5,9 +5,10 @@ from markupsafe import Markup
 
 import numpy as np
 
-from utils.fertilizer import fertilizer_dic
+# from utils.fertilizer import fertilizer_dic
+from app.utils.fertilizer import fertilizer_dic
 import requests
-import config
+import app.config
 import pickle
 import io
 # import torch
@@ -166,4 +167,4 @@ def fert_recommend():
 #
 # ===============================================================================================
 if __name__ == '__main__':
-    app.run(debug=False,port=5000)
+    app.run(host="0.0.0.0",port=5000)

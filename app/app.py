@@ -8,7 +8,7 @@ import numpy as np
 # from utils.fertilizer import fertilizer_dic
 from app.utils.fertilizer import fertilizer_dic
 import requests
-import app.config
+import config
 import pickle
 import io
 # import torch

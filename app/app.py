@@ -8,7 +8,7 @@ import numpy as np
 # from utils.fertilizer import fertilizer_dic
 from app.utils.fertilizer import fertilizer_dic
 import requests
-import config
+
 import pickle
 import io
 # import torch
@@ -24,9 +24,11 @@ crop_recommendation_model = pickle.load(
 
 
 # =========================================================================================
-
+import os
+from dotenv import load_dotenv
 # Custom functions for calculations
-
+load_dotenv()
+api_key = os.getenv("weather_api_key")
 
 def weather_fetch(city_name):
     """
@@ -34,7 +36,7 @@ def weather_fetch(city_name):
     :params: city_name
     :return: temperature, humidity
     """
-    api_key = config.weather_api_key
+
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
     complete_url = base_url + "appid=" + api_key + "&q=" + city_name
@@ -164,7 +166,7 @@ def fert_recommend():
 
     return render_template('fertilizer-result.html', recommendation=response, title=title)
 
-#
-# ===============================================================================================
+# #
+# # ===============================================================================================
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=5000)
